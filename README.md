@@ -1,3 +1,4 @@
+```R
 year <- seq(from=1900,to=2017,by=1)
 
 hrate <- c(1.2,1.2,1.2,1.1,1.3,2.1,
@@ -49,3 +50,4 @@ text(x=1934,y=3.5,adj=c(0,0.5),cex=0.8,
   "Modern Reporting")
 text(x=1934,y=3.0,adj=c(0,0.5),cex=0.8,
   "System Begins in 1933")
+```
