@@ -1,13 +1,13 @@
 ### U.S. Homicide Data 
 
 <p align="center">
-<img src="homicide-u.png">
+<img src="rplot.png">
 </p>
 
 * Code to generate plot
 
 ```R
-year <- seq(from=1900,to=2017,by=1)
+year <- seq(from=1900,to=2019,by=1)
 
 hrate <- c(1.2,1.2,1.2,1.1,1.3,2.1,
   3.9,4.9,4.8,4.2,4.6,5.5,5.4,6.1,
@@ -23,7 +23,7 @@ hrate <- c(1.2,1.2,1.2,1.1,1.3,2.1,
   9,9.3,10,10.5,10,10.1,9.6,8.7,7.9,
   7.4,6.8,6.2,6.1,7.1,6.1,6.1,5.9,
   6.1,6.2,6.1,5.9,5.5,5.3,5.1,5.3,
-  5.1,5.0,5.5,6.0,6.0)
+  5.1,5.0,5.5,6.0,6.0,5.8,5.8)
 
 ucr <- c(rep(NA,60),5.1,4.8,4.6,4.6,
   4.9,5.1,5.6,6.2,6.9,7.3,7.9,8.6,
@@ -31,7 +31,8 @@ ucr <- c(rep(NA,60),5.1,4.8,4.6,4.6,
   9.8,9.1,8.3,7.9,8,8.6,8.3,8.5,8.7,
   9.4,9.8,9.3,9.5,9,8.2,7.4,6.8,6.3,
   5.7,5.5,5.6,5.6,5.7,5.5,5.6,5.8,
-  5.7,5.4,5,4.8,4.7,4.7,4.5,4.4,4.9,5.3,5.3)
+  5.7,5.4,5,4.8,4.7,4.7,4.5,4.4,4.9,
+  5.3,5.3,5.0,5.0)
  
 nchs <- data.frame(year,hrate,ucr)
 nchs
@@ -42,15 +43,15 @@ median(nchs$ucr,na.rm=T)
 plot(x=nchs$year,y=nchs$hrate,
   type="l",lty=1,lwd=2,
   ylim=c(0,12),
-  xlab="Year (1900-2017)",
+  xlab="Year (1900-2019)",
   ylab="# of Homicides per 100k Population",
-  main="U.S. Homicide Rate (1900-2017)")
+  main="U.S. Homicide Rate (1900-2019)")
 points(x=1903,y=1.1,pch=19,cex=1.2)
 points(x=1980,y=10.7,pch=19,cex=1.2)
 lines(x=nchs$year,y=nchs$ucr,lty=2,lwd=2)
 segments(x0=1900,y0=median(nchs$hrate),
-         x1=2017,y1=median(nchs$hrate),lty=2,lwd=1.5)
-text(x=1920,y=11,adj=c(0,0.5),"Median NCHS Homicide Rate = 6.25")
+         x1=2019,y1=median(nchs$hrate),lty=2,lwd=1.5)
+text(x=1920,y=11,adj=c(0,0.5),"Median NCHS Homicide Rate = 6.2")
 arrows(x0=1940,y0=10.5,x1=1960,y1=6.7,
        lty=1,lwd=1.5,angle=20,length=0.2)
 segments(x0=1933,y0=0,x1=1933,y1=9.5,lty=2,lwd=0.8)
@@ -58,12 +59,16 @@ text(x=1934,y=3.5,adj=c(0,0.5),cex=0.8,
   "Modern Reporting")
 text(x=1934,y=3.0,adj=c(0,0.5),cex=0.8,
   "System Begins in 1933")
+segments(x0=1980,x1=1990,y0=2,y1=2,lty=1,lwd=1.5)
+text(x=1992,y=2,adj=c(0,0.5),cex=0.8,"NCHS Data")
+segments(x0=1980,x1=1990,y0=1.5,y1=1.5,lty=2,lwd=1.5)
+text(x=1992,y=1.5,adj=c(0,0.5),cex=0.8,"UCR Data")
 ```
 
 * Calculations
 
 ```Rout
-> year <- seq(from=1900,to=2017,by=1)
+> year <- seq(from=1900,to=2019,by=1)
 > 
 > hrate <- c(1.2,1.2,1.2,1.1,1.3,2.1,
 +   3.9,4.9,4.8,4.2,4.6,5.5,5.4,6.1,
@@ -79,7 +84,7 @@ text(x=1934,y=3.0,adj=c(0,0.5),cex=0.8,
 +   9,9.3,10,10.5,10,10.1,9.6,8.7,7.9,
 +   7.4,6.8,6.2,6.1,7.1,6.1,6.1,5.9,
 +   6.1,6.2,6.1,5.9,5.5,5.3,5.1,5.3,
-+   5.1,5.0,5.5,6.0,6.0)
++   5.1,5.0,5.5,6.0,6.0,5.8,5.8)
 > 
 > ucr <- c(rep(NA,60),5.1,4.8,4.6,4.6,
 +   4.9,5.1,5.6,6.2,6.9,7.3,7.9,8.6,
@@ -87,7 +92,8 @@ text(x=1934,y=3.0,adj=c(0,0.5),cex=0.8,
 +   9.8,9.1,8.3,7.9,8,8.6,8.3,8.5,8.7,
 +   9.4,9.8,9.3,9.5,9,8.2,7.4,6.8,6.3,
 +   5.7,5.5,5.6,5.6,5.7,5.5,5.6,5.8,
-+   5.7,5.4,5,4.8,4.7,4.7,4.5,4.4,4.9,5.3,5.3)
++   5.7,5.4,5,4.8,4.7,4.7,4.5,4.4,4.9,
++   5.3,5.3,5.0,5.0)
 >  
 > nchs <- data.frame(year,hrate,ucr)
 > nchs
@@ -210,24 +216,26 @@ text(x=1934,y=3.0,adj=c(0,0.5),cex=0.8,
 116 2015   5.5  4.9
 117 2016   6.0  5.3
 118 2017   6.0  5.3
+119 2018   5.8  5.0
+120 2019   5.8  5.0
 > 
 > median(nchs$hrate)
-[1] 6.25
+[1] 6.2
 > median(nchs$ucr,na.rm=T)
-[1] 6.85
+[1] 6.55
 > 
 > plot(x=nchs$year,y=nchs$hrate,
 +   type="l",lty=1,lwd=2,
 +   ylim=c(0,12),
-+   xlab="Year (1900-2017)",
++   xlab="Year (1900-2019)",
 +   ylab="# of Homicides per 100k Population",
-+   main="U.S. Homicide Rate (1900-2017)")
++   main="U.S. Homicide Rate (1900-2019)")
 > points(x=1903,y=1.1,pch=19,cex=1.2)
 > points(x=1980,y=10.7,pch=19,cex=1.2)
 > lines(x=nchs$year,y=nchs$ucr,lty=2,lwd=2)
 > segments(x0=1900,y0=median(nchs$hrate),
-+          x1=2017,y1=median(nchs$hrate),lty=2,lwd=1.5)
-> text(x=1920,y=11,adj=c(0,0.5),"Median NCHS Homicide Rate = 6.25")
++          x1=2019,y1=median(nchs$hrate),lty=2,lwd=1.5)
+> text(x=1920,y=11,adj=c(0,0.5),"Median NCHS Homicide Rate = 6.2")
 > arrows(x0=1940,y0=10.5,x1=1960,y1=6.7,
 +        lty=1,lwd=1.5,angle=20,length=0.2)
 > segments(x0=1933,y0=0,x1=1933,y1=9.5,lty=2,lwd=0.8)
@@ -235,5 +243,9 @@ text(x=1934,y=3.0,adj=c(0,0.5),cex=0.8,
 +   "Modern Reporting")
 > text(x=1934,y=3.0,adj=c(0,0.5),cex=0.8,
 +   "System Begins in 1933")
-> 
+> segments(x0=1980,x1=1990,y0=2,y1=2,lty=1,lwd=1.5)
+> text(x=1992,y=2,adj=c(0,0.5),cex=0.8,"NCHS Data")
+> segments(x0=1980,x1=1990,y0=1.5,y1=1.5,lty=2,lwd=1.5)
+> text(x=1992,y=1.5,adj=c(0,0.5),cex=0.8,"UCR Data")
+>
 ```
