@@ -249,3 +249,10 @@ text(x=1992,y=1.5,adj=c(0,0.5),cex=0.8,"UCR Data")
 > text(x=1992,y=1.5,adj=c(0,0.5),cex=0.8,"UCR Data")
 >
 ```
+
+#### Notes
+
+* Historical NCHS homicide rates obtained from this [link](http://web.archive.org/web/20101207003843/http://bjs.ojp.usdoj.gov/content/glance/tables/hmrttab.cfm).
+* Historical UCR homicide rates obtained from this [link](http://web.archive.org/web/20120812001236/http://bjs.ojp.usdoj.gov/content/homicide/tables/totalstab.cfm)
+* Contemporary NCHS homicide rates obtained from this [link](https://wonder.cdc.gov/controller/datarequest/D76).
+* Contemporary UCR homicide rates obtained from this [link](https://www.fbi.gov/services/cjis/ucr).
