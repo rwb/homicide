@@ -1,7 +1,7 @@
 ### U.S. Homicide Data 
 
 <p align="center">
-<img src="rplot.png">
+<img src="fig1.png">
 </p>
 
 * Code to generate plot
