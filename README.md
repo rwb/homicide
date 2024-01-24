@@ -37,21 +37,21 @@ ucr <- c(rep(NA,60),5.1,4.8,4.6,4.6,
 nchs <- data.frame(year,hrate,ucr)
 nchs
 
-median(nchs$hrate)
+median(nchs$hrate,na.rm=T)
 median(nchs$ucr,na.rm=T)
 
 plot(x=nchs$year,y=nchs$hrate,
   type="l",lty=1,lwd=2,
   ylim=c(0,12),
-  xlab="Year (1900-2019)",
+  xlab="Year (1900-2022)",
   ylab="# of Homicides per 100k Population",
-  main="U.S. Homicide Rate (1900-2020)")
+  main="U.S. Homicide Rate (1900-2022)")
 points(x=1903,y=1.1,pch=19,cex=1.2)
 points(x=1980,y=10.7,pch=19,cex=1.2)
 lines(x=nchs$year,y=nchs$ucr,lty=2,lwd=2)
-segments(x0=1900,y0=median(nchs$hrate),
-         x1=2020,y1=median(nchs$hrate),lty=2,lwd=1.5)
-text(x=1920,y=11,adj=c(0,0.5),"Median NCHS Homicide Rate = 6.2")
+segments(x0=1900,y0=median(nchs$hrate,na.rm=T),
+         x1=2020,y1=median(nchs$hrate,na.rm=T),lty=2,lwd=1.5)
+text(x=1920,y=11,adj=c(0,0.5),"Median NCHS Homicide Rate = 6.25")
 arrows(x0=1940,y0=10.5,x1=1960,y1=6.7,
        lty=1,lwd=1.5,angle=20,length=0.2)
 segments(x0=1933,y0=0,x1=1933,y1=9.5,lty=2,lwd=0.8)
