@@ -23,7 +23,7 @@ hrate <- c(1.2,1.2,1.2,1.1,1.3,2.1,
   9,9.3,10,10.5,10,10.1,9.6,8.7,7.9,
   7.4,6.8,6.2,6.1,7.1,6.1,6.1,5.9,
   6.1,6.2,6.1,5.9,5.5,5.3,5.1,5.3,
-  5.1,5.0,5.5,6.0,6.0,5.8,5.8,7.5,7.8,7.5)
+  5.1,5.0,5.5,6.0,6.0,5.8,5.8,7.5,7.8,7.5,6.8)
 
 ucr <- c(rep(NA,60),5.1,4.8,4.6,4.6,
   4.9,5.1,5.6,6.2,6.9,7.3,7.9,8.6,
@@ -43,9 +43,9 @@ median(nchs$ucr,na.rm=T)
 plot(x=nchs$year,y=nchs$hrate,
   type="l",lty=1,lwd=2,
   ylim=c(0,12),
-  xlab="Year (1900-2022)",
+  xlab="Year (1900-2023)",
   ylab="# of Homicides per 100k Population",
-  main="U.S. Homicide Rate (1900-2022)")
+  main="U.S. Homicide Rate (1900-2023)")
 points(x=1903,y=1.1,pch=19,cex=1.2)
 points(x=1980,y=10.7,pch=19,cex=1.2)
 lines(x=nchs$year,y=nchs$ucr,lty=2,lwd=2)
