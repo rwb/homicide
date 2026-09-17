@@ -70,6 +70,6 @@ text(x=1992,y=1.5,adj=c(0,0.5),cex=0.8,"UCR Data")
 
 * Historical NCHS homicide rates obtained from this [link](http://web.archive.org/web/20101207003843/http://bjs.ojp.usdoj.gov/content/glance/tables/hmrttab.cfm).
 * Historical UCR homicide rates obtained from this [link](http://web.archive.org/web/20120812001236/http://bjs.ojp.usdoj.gov/content/homicide/tables/totalstab.cfm)
-* Contemporary NCHS homicide rates obtained from this [link](https://wonder.cdc.gov/controller/datarequest/D76).
+* Contemporary NCHS homicide rates obtained from this [link](https://wonder.cdc.gov).
 * Contemporary UCR homicide rates obtained from this [link](https://www.fbi.gov/services/cjis/ucr).
 * Modern national mortality series began in 1933; Source: [link](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10257439/)).
